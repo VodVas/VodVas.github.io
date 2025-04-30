@@ -10,13 +10,18 @@
     <link rel="icon" type="image/x-icon" href="icon.png">
     <!-- Custom Styles -->
     <style>
-
         :root {
             --primary-color: #2c3e50;
             --accent-color: #2980b9;
             --gradient-start: #2c3e50;
             --gradient-end: #3498db;
             --badge-bg: #34495e;
+            /* Animation Variables */
+            --card-animation-duration: 0.6s;
+            --card-animation-distance: 20px;
+            --header-animation-duration: 0.8s;
+            --header-animation-distance: 30px;
+            --animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1); /* Improved easing */
         }
 
         body {
@@ -24,14 +29,32 @@
             color: #212529;
             padding-top: 2rem;
             padding-bottom: 3rem;
+            overflow-x: hidden; /* Prevent horizontal scrolling during animations */
         }
 
+        /* Header Animation */
         .profile-header {
             background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
             padding: 2.5rem;
             border-radius: 12px;
             color: white;
             margin-bottom: 3rem !important;
+            transform: translateY(var(--header-animation-distance));
+            opacity: 0;
+            will-change: transform, opacity;
+            animation: headerAppear var(--header-animation-duration) var(--animation-timing-function) forwards;
+        }
+
+        @keyframes headerAppear {
+            0% {
+                transform: translateY(var(--header-animation-distance));
+                opacity: 0;
+            }
+
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
         }
 
         .profile-photo {
@@ -39,7 +62,7 @@
             height: 150px;
             object-fit: cover;
             border: 4px solid rgba(255,255,255,0.2);
-            transition: all 0.3s ease;
+            transition: transform 0.3s var(--animation-timing-function), box-shadow 0.3s var(--animation-timing-function);
         }
 
             .profile-photo:hover {
@@ -62,7 +85,47 @@
             .profile-header .row {
                 flex-direction: column-reverse;
             }
+
+            :root {
+                --card-animation-distance: 15px; /* Smaller animation distance for mobile */
+                --header-animation-distance: 20px;
+            }
         }
+
+        /* Project Card Animations */
+        .project-card {
+            border: none;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            opacity: 0;
+            transform: translateY(var(--card-animation-distance));
+            transition: transform 0.5s var(--animation-timing-function), opacity 0.5s var(--animation-timing-function), box-shadow 0.5s var(--animation-timing-function);
+            will-change: transform, opacity, box-shadow;
+        }
+
+            .project-card.animated {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            .project-card:hover {
+                transform: translateY(-8px);
+                box-shadow: 0 12px 24px rgba(0,0,0,0.12);
+            }
+
+            /* Staggered animation for cards */
+            .project-card:nth-child(1).animated {
+                transition-delay: 0.1s;
+            }
+
+            .project-card:nth-child(2).animated {
+                transition-delay: 0.2s;
+            }
+
+            .project-card:nth-child(3).animated {
+                transition-delay: 0.3s;
+            }
 
         .skill-badge {
             background: linear-gradient(145deg, var(--primary-color), var(--accent-color));
@@ -81,19 +144,6 @@
             .expertise-card:hover {
                 transform: translateY(-5px);
                 box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-            }
-
-        .project-card {
-            border: none;
-            border-radius: 12px;
-            overflow: hidden;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-        }
-
-            .project-card:hover {
-                transform: translateY(-8px);
-                box-shadow: 0 12px 24px rgba(0,0,0,0.12);
             }
 
         .project-header {
@@ -167,12 +217,23 @@
                 height: 4px;
                 background: linear-gradient(90deg, var(--accent-color), transparent);
             }
+
+        /* Preload animation to prevent flashes */
+        .preload * {
+            -webkit-animation: none !important;
+            -moz-animation: none !important;
+            -ms-animation: none !important;
+            animation: none !important;
+            -webkit-transition: none !important;
+            -moz-transition: none !important;
+            -ms-transition: none !important;
+            transition: none !important;
+        }
     </style>
 </head>
-<body>
+<body class="preload">
     <div class="container">
         <!-- Header -->
-        <!-- Updated Header -->
         <header class="profile-header mb-5">
             <div class="row align-items-center">
                 <div class="col-md-8">
@@ -202,7 +263,7 @@
                             <h3 class="card-title mb-3"><i class="bi bi-gear-wide-connected"></i> Unity Development</h3>
                             <ul class="list-unstyled">
                                 <li class="mb-2">✔ 2+ years commercial experience</li>
-                                <li class="mb-2">✔ Advanced C# & Optimization (DOTS, Job System)</li>
+                                <li class="mb-2">✔ Advanced C# & Optimization (DOTS, Job System, Burst)</li>
                                 <li class="mb-2">✔ DI Frameworks (Zenject/VContainer/Reflex)</li>
                                 <li class="mb-2">✔ Editor Tools Development</li>
                             </ul>
@@ -250,7 +311,7 @@
                                     <ul>
                                         <li>DOTS/Burst</li>
                                         <li>Memory/GC Profiling</li>
-                                        <li>AssetBundle/Addressables</li>
+                                        <li>Addressables</li>
                                     </ul>
                                 </div>
                             </div>
@@ -263,7 +324,7 @@
                                     <ul>
                                         <li>Git Flow</li>
                                         <li>Scrum/Kanban</li>
-                                        <li>Jira/Notion</li>
+                                        <li>AI Tools for Efficiency</li>
                                     </ul>
                                 </div>
                             </div>
@@ -277,7 +338,7 @@
                     <div class="row g-4">
                         <!-- Advanced Mesh Combiner -->
                         <div class="col-lg-12">
-                            <div class="card project-card">
+                            <div class="project-card">
                                 <div class="project-header">
                                     <div class="row align-items-center">
                                         <div class="col-md-8">
@@ -315,7 +376,7 @@
 
                         <!-- UI Optimizer Pro -->
                         <div class="col-lg-12">
-                            <div class="card project-card">
+                            <div class="project-card">
                                 <div class="project-header" style="background: linear-gradient(135deg, #8e44ad, #9b59b6);">
                                     <div class="row align-items-center">
                                         <div class="col-md-8">
@@ -353,7 +414,7 @@
 
                         <!-- Interface Serializer -->
                         <div class="col-lg-12">
-                            <div class="card project-card">
+                            <div class="project-card">
                                 <div class="project-header" style="background: linear-gradient(135deg, #16a085, #2ecc71);">
                                     <div class="row align-items-center">
                                         <div class="col-md-8">
@@ -416,5 +477,67 @@
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
             <!-- Bootstrap Icons -->
             <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+
+            <!-- Animation script -->
+            <script>
+                // Remove preload class after document is fully loaded to enable animations
+                document.addEventListener('DOMContentLoaded', function () {
+                    // Small timeout to ensure smooth animations after page is fully loaded
+                    setTimeout(function () {
+                        document.body.classList.remove('preload');
+                    }, 100);
+
+                    // Setup intersection observer for project cards
+                    setupScrollAnimations();
+                });
+
+                function setupScrollAnimations() {
+                    const projectCards = document.querySelectorAll('.project-card');
+
+                    // Configure IntersectionObserver with appropriate options
+                    const observerOptions = {
+                        root: null, // use viewport as root
+                        rootMargin: '0px 0px -10% 0px', // trigger slightly before element is fully in view
+                        threshold: 0.15 // trigger when 15% of element is visible
+                    };
+
+                    // Create the observer
+                    const observer = new IntersectionObserver((entries, observer) => {
+                        entries.forEach(entry => {
+                            // When card enters viewport
+                            if (entry.isIntersecting) {
+                                entry.target.classList.add('animated');
+
+                                // Optional: stop observing after animation is triggered
+                                // observer.unobserve(entry.target);
+                            }
+                            // Optional: remove animation class when card leaves viewport
+                            // This makes it re-animate when scrolling back up
+                            /*
+                            else {
+                                entry.target.classList.remove('animated');
+                            }
+                            */
+                        });
+                    }, observerOptions);
+
+                    // Observe each project card
+                    projectCards.forEach(card => {
+                        observer.observe(card);
+                    });
+
+                    // Performance optimization: Use passive event listeners
+                    window.addEventListener('scroll', () => { }, { passive: true });
+
+                    // Handle reduced motion preference for accessibility
+                    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+                    if (prefersReducedMotion) {
+                        // Apply all animations immediately without transitions
+                        document.documentElement.style.setProperty('--card-animation-duration', '0s');
+                        document.documentElement.style.setProperty('--header-animation-duration', '0s');
+                        projectCards.forEach(card => card.classList.add('animated'));
+                    }
+                }
+            </script>
 </body>
 </html>
