@@ -3,118 +3,155 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VodVas | Unity Developer</title>
+    <title>Vasiliy Vodolazhskiy | Unity Technical Developer</title>
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="icon.png">
-    <!-- Кастомные стили -->
+    <!-- Custom Styles -->
     <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #2980b9;
+        }
+
         body {
             background-color: #f8f9fa;
             color: #212529;
             padding-top: 2rem;
         }
 
-        .hero {
-            background-color: #e9ecef;
-            border-radius: 0.5rem;
-            padding: 2rem;
-            margin-bottom: 2rem;
+        .skill-badge {
+            background: linear-gradient(145deg, var(--primary-color), var(--accent-color));
+            color: white !important;
+            border-radius: 20px;
+            padding: 8px 15px;
+            margin: 3px;
+            font-size: 0.9em;
         }
 
-        .project-card {
-            transition: transform 0.3s;
-            margin-bottom: 1.5rem;
+        .expertise-card {
+            border-left: 4px solid var(--accent-color);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
 
-            .project-card:hover {
+            .expertise-card:hover {
                 transform: translateY(-5px);
                 box-shadow: 0 10px 20px rgba(0,0,0,0.1);
             }
-
-        .contact-section {
-            background-color: #e9ecef;
-            border-radius: 0.5rem;
-            padding: 2rem;
-        }
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- Шапка -->
-        <header class="hero text-center mb-5">
-            <h1 class="display-4 fw-bold">VodVas</h1>
-            <p class="lead text-muted">Unity Developer & Tools Creator</p>
+        <!-- Header -->
+        <header class="text-center mb-5">
+            <h1 class="display-4 fw-bold mb-3">Vasiliy Vodolazhskiy</h1>
+            <div class="d-flex justify-content-center gap-3">
+                <span class="badge bg-primary fs-6">Unity Technical Developer</span>
+                <span class="badge bg-success fs-6">Middle+</span>
+            </div>
         </header>
 
-        <!-- О себе -->
+        <!-- Core Expertise -->
         <section class="mb-5">
-            <h2 class="mb-4">About Me</h2>
-            <div class="card shadow-sm">
-                <div class="card-body">
-                    <p class="card-text">Hello! I'm a Unity developer passionate about creating tools and plugins to simplify game development. Check out my projects below!</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Проекты -->
-        <section class="mb-5">
-            <h2 class="mb-4">My Projects</h2>
-            <div class="row">
-                <!-- Interface Serializer -->
+            <h2 class="mb-4 border-bottom pb-2">Technical Expertise</h2>
+            <div class="row g-4">
+                <!-- Unity Development -->
                 <div class="col-md-6">
-                    <div class="card project-card h-100 shadow-sm">
+                    <div class="card expertise-card h-100">
                         <div class="card-body">
-                            <h3 class="card-title h5">Interface Serializer</h3>
-                            <p class="card-text">A Unity plugin for serializing interfaces in the Inspector. Perfect for advanced game architecture.</p>
-                            <a href="https://github.com/VodVas/InterfaceSerializer" class="btn btn-primary btn-sm">View on GitHub</a>
+                            <h3 class="card-title mb-3"><i class="bi bi-gear-wide-connected"></i> Unity Development</h3>
+                            <ul class="list-unstyled">
+                                <li class="mb-2">✔ 2+ years commercial experience</li>
+                                <li class="mb-2">✔ Advanced C# & Optimization (DOTS, Job System)</li>
+                                <li class="mb-2">✔ DI Frameworks (Zenject/VContainer/Reflex)</li>
+                                <li class="mb-2">✔ Editor Tools Development</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
 
-                <!-- Advanced Mesh Combiner -->
+                <!-- Engineering Practices -->
                 <div class="col-md-6">
-                    <div class="card project-card h-100 shadow-sm">
+                    <div class="card expertise-card h-100">
                         <div class="card-body">
-                            <h3 class="card-title h5">Advanced Mesh Combiner</h3>
-                            <p class="card-text">Powerful Unity tool for optimizing 3D scenes by combining meshes with advanced material handling.</p>
-                            <a href="https://github.com/VodVas/AdvancedMeshCombiner" class="btn btn-primary btn-sm">View on GitHub</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- UI Optimizer -->
-                <div class="col-md-6 mt-4">
-                    <div class="card project-card h-100 shadow-sm">
-                        <div class="card-body">
-                            <h3 class="card-title h5">UI Optimizer</h3>
-                            <p class="card-text">Unity solution for automatic UI batching and optimization to improve rendering performance.</p>
-                            <a href="https://github.com/VodVas/UIOptimizer" class="btn btn-primary btn-sm">View on GitHub</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Placeholder for future projects -->
-                <div class="col-md-6 mt-4">
-                    <div class="card project-card h-100 shadow-sm">
-                        <div class="card-body">
-                            <h3 class="card-title h5">Your Next Project</h3>
-                            <p class="card-text">Description of your next amazing project.</p>
-                            <a href="#" class="btn btn-outline-secondary btn-sm">Coming Soon</a>
+                            <h3 class="card-title mb-3"><i class="bi bi-code-square"></i> Engineering</h3>
+                            <div class="d-flex flex-wrap">
+                                <span class="skill-badge">SOLID Principles</span>
+                                <span class="skill-badge">MVx Patterns</span>
+                                <span class="skill-badge">TDD</span>
+                                <span class="skill-badge">Unit Testing</span>
+                                <span class="skill-badge">CI/CD</span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Контакты -->
-        <section class="contact-section">
-            <h2 class="mb-4">Contact</h2>
-            <div class="card shadow-sm">
-                <div class="card-body">
-                    <p class="mb-2"><i class="bi bi-envelope me-2"></i> Email: <a href="mailto:vod.vas2022@gmail.com">vod.vas2022@gmail.com</a></p>
-                    <p class="mb-0"><i class="bi bi-github me-2"></i> GitHub: <a href="https://github.com/VodVas">github.com/VodVas</a></p>
+        <!-- Technical Stack -->
+        <section class="mb-5">
+            <h2 class="mb-4 border-bottom pb-2">Technology Stack</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h4 class="card-title text-primary"><i class="bi bi-cpu"></i> Core</h4>
+                            <ul>
+                                <li>Unity 2021+</li>
+                                <li>C# 9.0/.NET 6</li>
+                                <li>UniRx/UniTask</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h4 class="card-title text-primary"><i class="bi bi-speedometer2"></i> Optimization</h4>
+                            <ul>
+                                <li>DOTS/Burst</li>
+                                <li>Memory/GC Profiling</li>
+                                <li>AssetBundle/Addressables</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h4 class="card-title text-primary"><i class="bi bi-tools"></i> Workflow</h4>
+                            <ul>
+                                <li>Git Flow</li>
+                                <li>Scrum/Kanban</li>
+                                <li>Jira/Notion</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <!-- ... (оставьте предыдущую секцию проектов без изменений) ... -->
+        <!-- Contact Section -->
+        <section class="contact-section mt-5">
+            <div class="card border-0 shadow-lg">
+                <div class="card-body text-center">
+                    <h2 class="mb-4">Get in Touch</h2>
+                    <div class="d-flex justify-content-center gap-4">
+                        <a href="mailto:vod.vas2022@gmail.com" class="btn btn-primary btn-lg">
+                            <i class="bi bi-envelope"></i> Email
+                        </a>
+                        <a href="https://t.me/Vasiliy_Vod" class="btn btn-outline-primary btn-lg">
+                            <i class="bi bi-telegram"></i> Telegram
+                        </a>
+                        <a href="https://github.com/VodVas" class="btn btn-dark btn-lg">
+                            <i class="bi bi-github"></i> GitHub
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>
