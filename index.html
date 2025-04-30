@@ -10,6 +10,7 @@
     <link rel="icon" type="image/x-icon" href="icon.png">
     <!-- Custom Styles -->
     <style>
+
         :root {
             --primary-color: #2c3e50;
             --accent-color: #2980b9;
@@ -23,6 +24,44 @@
             color: #212529;
             padding-top: 2rem;
             padding-bottom: 3rem;
+        }
+
+        .profile-header {
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            padding: 2.5rem;
+            border-radius: 12px;
+            color: white;
+            margin-bottom: 3rem !important;
+        }
+
+        .profile-photo {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border: 4px solid rgba(255,255,255,0.2);
+            transition: all 0.3s ease;
+        }
+
+            .profile-photo:hover {
+                transform: scale(1.03);
+                box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            }
+
+        @media (max-width: 768px) {
+            .profile-header {
+                text-align: center;
+                padding: 1.5rem;
+            }
+
+            .profile-photo {
+                width: 120px;
+                height: 120px;
+                margin: 1rem auto 0;
+            }
+
+            .profile-header .row {
+                flex-direction: column-reverse;
+            }
         }
 
         .skill-badge {
@@ -133,11 +172,22 @@
 <body>
     <div class="container">
         <!-- Header -->
-        <header class="text-center mb-5">
-            <h1 class="display-4 fw-bold mb-3">Vasiliy Vodolazhskiy</h1>
-            <div class="d-flex justify-content-center gap-3">
-                <span class="badge bg-primary fs-6">Unity Technical Developer</span>
-                <span class="badge bg-success fs-6">Middle+</span>
+        <!-- Updated Header -->
+        <header class="profile-header mb-5">
+            <div class="row align-items-center">
+                <div class="col-md-8">
+                    <h1 class="display-4 fw-bold mb-3">Vasiliy Vodolazhskiy</h1>
+                    <div class="d-flex gap-3">
+                        <span class="badge bg-primary fs-6">Unity Technical Developer</span>
+                    </div>
+                </div>
+                <div class="col-md-4 text-md-end">
+                    <img src="profile-photo.webp" alt="Vasiliy Vodolazhskiy"
+                         class="profile-photo rounded-circle shadow-sm"
+                         loading="lazy"
+                         width="150"
+                         height="150">
+                </div>
             </div>
         </header>
 
@@ -176,195 +226,195 @@
                     </div>
                 </div>
 
-        <!-- Technical Stack -->
-        <section class="mb-5">
-            <h2 class="mb-4 border-bottom pb-2">Technology Stack</h2>
-            <div class="row g-4">
-                <div class="col-md-4">
-                    <div class="card h-100">
-                        <div class="card-body">
-                            <h4 class="card-title text-primary"><i class="bi bi-cpu"></i> Core</h4>
-                            <ul>
-                                <li>Unity 2021+</li>
-                                <li>C# 9.0/.NET 6</li>
-                                <li>UniRx/UniTask</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="card h-100">
-                        <div class="card-body">
-                            <h4 class="card-title text-primary"><i class="bi bi-speedometer2"></i> Optimization</h4>
-                            <ul>
-                                <li>DOTS/Burst</li>
-                                <li>Memory/GC Profiling</li>
-                                <li>AssetBundle/Addressables</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="card h-100">
-                        <div class="card-body">
-                            <h4 class="card-title text-primary"><i class="bi bi-tools"></i> Workflow</h4>
-                            <ul>
-                                <li>Git Flow</li>
-                                <li>Scrum/Kanban</li>
-                                <li>Jira/Notion</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Open Source Tools Section -->
-        <section class="mb-5">
-            <h2 class="section-title">Open Source Unity Tools</h2>
-            <div class="row g-4">
-                <!-- Advanced Mesh Combiner -->
-                <div class="col-lg-12">
-                    <div class="card project-card">
-                        <div class="project-header">
-                            <div class="row align-items-center">
-                                <div class="col-md-8">
-                                    <i class="bi bi-layers-half project-icon"></i>
-                                    <h3 class="mb-2">Advanced Mesh Combiner</h3>
-                                    <p class="mb-0">Ultimate optimization toolkit for complex Unity scenes</p>
+                <!-- Technical Stack -->
+                <section class="mb-5">
+                    <h2 class="mb-4 border-bottom pb-2">Technology Stack</h2>
+                    <div class="row g-4">
+                        <div class="col-md-4">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <h4 class="card-title text-primary"><i class="bi bi-cpu"></i> Core</h4>
+                                    <ul>
+                                        <li>Unity 2021+</li>
+                                        <li>C# 9.0/.NET 6</li>
+                                        <li>UniRx/UniTask</li>
+                                    </ul>
                                 </div>
-                                <div class="col-md-4 text-md-end mt-3 mt-md-0">
-                                    <div class="mb-2">
-                                        <span class="tech-badge">Unity 2020.1+</span>
-                                        <span class="tech-badge">DOTS</span>
-                                        <span class="tech-badge">Burst</span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <h4 class="card-title text-primary"><i class="bi bi-speedometer2"></i> Optimization</h4>
+                                    <ul>
+                                        <li>DOTS/Burst</li>
+                                        <li>Memory/GC Profiling</li>
+                                        <li>AssetBundle/Addressables</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <h4 class="card-title text-primary"><i class="bi bi-tools"></i> Workflow</h4>
+                                    <ul>
+                                        <li>Git Flow</li>
+                                        <li>Scrum/Kanban</li>
+                                        <li>Jira/Notion</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Open Source Tools Section -->
+                <section class="mb-5">
+                    <h2 class="section-title">Open Source Unity Tools</h2>
+                    <div class="row g-4">
+                        <!-- Advanced Mesh Combiner -->
+                        <div class="col-lg-12">
+                            <div class="card project-card">
+                                <div class="project-header">
+                                    <div class="row align-items-center">
+                                        <div class="col-md-8">
+                                            <i class="bi bi-layers-half project-icon"></i>
+                                            <h3 class="mb-2">Advanced Mesh Combiner</h3>
+                                            <p class="mb-0">Ultimate optimization toolkit for complex Unity scenes</p>
+                                        </div>
+                                        <div class="col-md-4 text-md-end mt-3 mt-md-0">
+                                            <div class="mb-2">
+                                                <span class="tech-badge">Unity 2020.1+</span>
+                                                <span class="tech-badge">DOTS</span>
+                                                <span class="tech-badge">Burst</span>
+                                            </div>
+                                            <a href="https://github.com/VodVas/AdvancedMeshCombiner" class="btn github-btn">
+                                                <i class="bi bi-github me-2"></i>View on GitHub
+                                            </a>
+                                        </div>
                                     </div>
-                                    <a href="https://github.com/VodVas/AdvancedMeshCombiner" class="btn github-btn">
-                                        <i class="bi bi-github me-2"></i>View on GitHub
-                                    </a>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <h4 class="mb-3">Key Features</h4>
-                            <ul class="feature-list">
-                                <li><span class="highlight">Burst-powered vertex processing</span> - 65,535 vertices processed in just 0.8ms</li>
-                                <li><span class="highlight">Zero GC allocations</span> with NativeArray + JobSystem for stutter-free performance</li>
-                                <li><span class="highlight">8x faster</span> than traditional Matrix4x4 transforms</li>
-                                <li>SOLID architecture with clean code design patterns</li>
-                                <li>LOD-aware collider generation for optimal performance across all platforms</li>
-                            </ul>
-                            <div class="mt-4">
-                                <p class="mb-0 text-muted">Perfect for optimizing large open worlds, complex interiors, and mobile applications.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- UI Optimizer Pro -->
-                <div class="col-lg-12">
-                    <div class="card project-card">
-                        <div class="project-header" style="background: linear-gradient(135deg, #8e44ad, #9b59b6);">
-                            <div class="row align-items-center">
-                                <div class="col-md-8">
-                                    <i class="bi bi-ui-checks project-icon"></i>
-                                    <h3 class="mb-2">UI Optimizer Pro</h3>
-                                    <p class="mb-0">Automate UI optimization like a pro</p>
-                                </div>
-                                <div class="col-md-4 text-md-end mt-3 mt-md-0">
-                                    <div class="mb-2">
-                                        <span class="tech-badge">Unity 2021.3+</span>
-                                        <span class="tech-badge">UGUI</span>
-                                        <span class="tech-badge">TextMeshPro</span>
+                                <div class="card-body">
+                                    <h4 class="mb-3">Key Features</h4>
+                                    <ul class="feature-list">
+                                        <li><span class="highlight">Burst-powered vertex processing</span> - 65,535 vertices processed in just 0.8ms</li>
+                                        <li><span class="highlight">Zero GC allocations</span> with NativeArray + JobSystem for stutter-free performance</li>
+                                        <li><span class="highlight">8x faster</span> than traditional Matrix4x4 transforms</li>
+                                        <li>SOLID architecture with clean code design patterns</li>
+                                        <li>LOD-aware collider generation for optimal performance across all platforms</li>
+                                    </ul>
+                                    <div class="mt-4">
+                                        <p class="mb-0 text-muted">Perfect for optimizing large open worlds, complex interiors, and mobile applications.</p>
                                     </div>
-                                    <a href="https://github.com/VodVas/UIOptimizer" class="btn github-btn">
-                                        <i class="bi bi-github me-2"></i>View on GitHub
-                                    </a>
                                 </div>
                             </div>
                         </div>
-                        <div class="card-body">
-                            <h4 class="mb-3">Key Features</h4>
-                            <ul class="feature-list">
-                                <li><span class="highlight">Save 90% time</span> on performance optimization with smart component processing</li>
-                                <li><span class="highlight">All-in-One optimization</span> for Images, Text, TMP, Maskable components and raycast targets</li>
-                                <li><span class="highlight">Surgical precision controls</span> with component-specific settings</li>
-                                <li><span class="highlight">Smart exclusion system</span> that auto-excludes interactive elements</li>
-                                <li>Real-time analytics to track optimization progress</li>
-                            </ul>
-                            <div class="mt-4">
-                                <p class="mb-0 text-muted">Transform your UI workflow - what took hours now takes seconds!</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
-                <!-- Interface Serializer -->
-                <div class="col-lg-12">
-                    <div class="card project-card">
-                        <div class="project-header" style="background: linear-gradient(135deg, #16a085, #2ecc71);">
-                            <div class="row align-items-center">
-                                <div class="col-md-8">
-                                    <i class="bi bi-braces-asterisk project-icon"></i>
-                                    <h3 class="mb-2">Interface Serializer</h3>
-                                    <p class="mb-0">Enable interface references directly in the Unity Inspector</p>
-                                </div>
-                                <div class="col-md-4 text-md-end mt-3 mt-md-0">
-                                    <div class="mb-2">
-                                        <span class="tech-badge">Unity 2019.4+</span>
-                                        <span class="tech-badge">Editor Tool</span>
-                                        <span class="tech-badge">UPM</span>
+                        <!-- UI Optimizer Pro -->
+                        <div class="col-lg-12">
+                            <div class="card project-card">
+                                <div class="project-header" style="background: linear-gradient(135deg, #8e44ad, #9b59b6);">
+                                    <div class="row align-items-center">
+                                        <div class="col-md-8">
+                                            <i class="bi bi-ui-checks project-icon"></i>
+                                            <h3 class="mb-2">UI Optimizer Pro</h3>
+                                            <p class="mb-0">Automate UI optimization like a pro</p>
+                                        </div>
+                                        <div class="col-md-4 text-md-end mt-3 mt-md-0">
+                                            <div class="mb-2">
+                                                <span class="tech-badge">Unity 2021.3+</span>
+                                                <span class="tech-badge">UGUI</span>
+                                                <span class="tech-badge">TextMeshPro</span>
+                                            </div>
+                                            <a href="https://github.com/VodVas/UIOptimizer" class="btn github-btn">
+                                                <i class="bi bi-github me-2"></i>View on GitHub
+                                            </a>
+                                        </div>
                                     </div>
-                                    <a href="https://github.com/VodVas/InterfaceSerializer" class="btn github-btn">
-                                        <i class="bi bi-github me-2"></i>View on GitHub
-                                    </a>
+                                </div>
+                                <div class="card-body">
+                                    <h4 class="mb-3">Key Features</h4>
+                                    <ul class="feature-list">
+                                        <li><span class="highlight">Save 90% time</span> on performance optimization with smart component processing</li>
+                                        <li><span class="highlight">All-in-One optimization</span> for Images, Text, TMP, Maskable components and raycast targets</li>
+                                        <li><span class="highlight">Surgical precision controls</span> with component-specific settings</li>
+                                        <li><span class="highlight">Smart exclusion system</span> that auto-excludes interactive elements</li>
+                                        <li>Real-time analytics to track optimization progress</li>
+                                    </ul>
+                                    <div class="mt-4">
+                                        <p class="mb-0 text-muted">Transform your UI workflow - what took hours now takes seconds!</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="card-body">
-                            <h4 class="mb-3">Key Features</h4>
-                            <ul class="feature-list">
-                                <li><span class="highlight">Universal interface support</span> - works with any C# interface</li>
-                                <li><span class="highlight">Type-safe validation</span> prevents incorrect assignments</li>
-                                <li><span class="highlight">Zero runtime overhead</span> - all processing happens in Editor</li>
-                                <li><span class="highlight">UPM-compatible</span> for easy installation via Git URL</li>
-                                <li>Clean architecture compliant with SOLID principles</li>
-                            </ul>
-                            <div class="mt-4">
-                                <p class="mb-0 text-muted">Lightweight solution to a common Unity limitation, with no external dependencies.</p>
+
+                        <!-- Interface Serializer -->
+                        <div class="col-lg-12">
+                            <div class="card project-card">
+                                <div class="project-header" style="background: linear-gradient(135deg, #16a085, #2ecc71);">
+                                    <div class="row align-items-center">
+                                        <div class="col-md-8">
+                                            <i class="bi bi-braces-asterisk project-icon"></i>
+                                            <h3 class="mb-2">Interface Serializer</h3>
+                                            <p class="mb-0">Enable interface references directly in the Unity Inspector</p>
+                                        </div>
+                                        <div class="col-md-4 text-md-end mt-3 mt-md-0">
+                                            <div class="mb-2">
+                                                <span class="tech-badge">Unity 2019.4+</span>
+                                                <span class="tech-badge">Editor Tool</span>
+                                                <span class="tech-badge">UPM</span>
+                                            </div>
+                                            <a href="https://github.com/VodVas/InterfaceSerializer" class="btn github-btn">
+                                                <i class="bi bi-github me-2"></i>View on GitHub
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <h4 class="mb-3">Key Features</h4>
+                                    <ul class="feature-list">
+                                        <li><span class="highlight">Universal interface support</span> - works with any C# interface</li>
+                                        <li><span class="highlight">Type-safe validation</span> prevents incorrect assignments</li>
+                                        <li><span class="highlight">Zero runtime overhead</span> - all processing happens in Editor</li>
+                                        <li><span class="highlight">UPM-compatible</span> for easy installation via Git URL</li>
+                                        <li>Clean architecture compliant with SOLID principles</li>
+                                    </ul>
+                                    <div class="mt-4">
+                                        <p class="mb-0 text-muted">Lightweight solution to a common Unity limitation, with no external dependencies.</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </section>
+                </section>
 
-        <!-- Contact Section -->
-        <section class="contact-section mt-5">
-            <div class="card border-0 shadow-lg">
-                <div class="card-body text-center">
-                    <h2 class="mb-4">Get in Touch</h2>
-                    <div class="d-flex justify-content-center gap-4">
-                        <a href="mailto:vod.vas2022@gmail.com" class="btn btn-primary btn-lg">
-                            <i class="bi bi-envelope"></i> Email
-                        </a>
-                        <a href="https://t.me/Vasiliy_Vod" class="btn btn-outline-primary btn-lg">
-                            <i class="bi bi-telegram"></i> Telegram
-                        </a>
-                        <a href="https://github.com/VodVas" class="btn btn-dark btn-lg">
-                            <i class="bi bi-github"></i> GitHub
-                        </a>
+                <!-- Contact Section -->
+                <section class="contact-section mt-5">
+                    <div class="card border-0 shadow-lg">
+                        <div class="card-body text-center">
+                            <h2 class="mb-4">Get in Touch</h2>
+                            <div class="d-flex justify-content-center gap-4">
+                                <a href="mailto:vod.vas2022@gmail.com" class="btn btn-primary btn-lg">
+                                    <i class="bi bi-envelope"></i> Email
+                                </a>
+                                <a href="https://t.me/Vasiliy_Vod" class="btn btn-outline-primary btn-lg">
+                                    <i class="bi bi-telegram"></i> Telegram
+                                </a>
+                                <a href="https://github.com/VodVas" class="btn btn-dark btn-lg">
+                                    <i class="bi bi-github"></i> GitHub
+                                </a>
+                            </div>
+                        </div>
                     </div>
-                </div>
+                </section>
             </div>
-        </section>
-    </div>
 
-    <!-- Bootstrap 5 JS + Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Bootstrap Icons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+            <!-- Bootstrap 5 JS + Popper -->
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+            <!-- Bootstrap Icons -->
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
 </body>
 </html>
