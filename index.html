@@ -21,7 +21,21 @@
             --card-animation-distance: 20px;
             --header-animation-duration: 0.8s;
             --header-animation-distance: 30px;
-            --animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1); /* Improved easing */
+            --animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+        }
+
+        body {
+            user-select: none;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        input, textarea, [contenteditable] {
+            user-select: auto;
+            caret-color: auto;
+        }
+
+        .btn:focus {
+            box-shadow: none !important;
         }
 
         body {
@@ -29,7 +43,7 @@
             color: #212529;
             padding-top: 2rem;
             padding-bottom: 3rem;
-            overflow-x: hidden; /* Prevent horizontal scrolling during animations */
+            overflow-x: hidden;
         }
 
         /* Header Animation */
