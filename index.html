@@ -55,19 +55,21 @@
             margin-bottom: 3rem !important;
             transform: translateY(var(--header-animation-distance));
             opacity: 0;
-            will-change: transform, opacity;
+            isolation: isolate;
+            contain: paint;
             animation: headerAppear var(--header-animation-duration) var(--animation-timing-function) forwards;
+            z-index: 1;
         }
 
         @keyframes headerAppear {
-            0% {
-                transform: translateY(var(--header-animation-distance));
+            from {
                 opacity: 0;
+                transform: translateY(30px) scale(0.98); /* Числовое значение вместо переменной */
             }
 
-            100% {
-                transform: translateY(0);
+            to {
                 opacity: 1;
+                transform: translateY(0) scale(1);
             }
         }
 
